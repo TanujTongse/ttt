@@ -1,4 +1,6 @@
-let currentPlayer = 'X';
+var f=prompt("Enter the First Player Name:-");
+var s=prompt("Enter the Second Player Name:-");
+let currentPlayer = f;
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 let gameActive = true;
 
@@ -14,7 +16,7 @@ function handleCellClick(index) {
     gameBoard[index] = currentPlayer;
     render();
     checkResult();
-    currentPlayer = currentPlayer === 'X' ? '0' : 'X';
+    currentPlayer = currentPlayer === f ? s : f;
 }
 
 function checkResult() {
@@ -22,7 +24,7 @@ function checkResult() {
         const [a, b, c] = combo;
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
             gameActive = false;
-            alert(document.getElementById('result').innerText = `${currentPlayer} WINS`);
+            alert(document.getElementById('result').innerText = `${currentPlayer} Win's`);
             break;
         }
     }
@@ -34,7 +36,7 @@ function checkResult() {
 }
 
 function resetGame() {
-    currentPlayer = 'X';
+    currentPlayer = f;
     gameBoard = ['', '', '', '', '', '', '', '', ''];
     gameActive = true;
     document.getElementById('result').innerText = '';
